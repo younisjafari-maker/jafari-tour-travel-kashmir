@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jafari Tour and Travel - Kashmir Tour Packages</title>
+<style>
+  :root {
+    --primary: #007BFF;
+    --primary-dark: #0056b3;
+    --secondary: #f8f9fa;
+    --text: #333;
+    --border: #ddd;
+    --accent: #4CAF50;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  body { 
+    font-family: 'Segoe UI', Arial, sans-serif; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 20px; 
+    background-color: #f5f7fa;
+    color: var(--text);
+    line-height: 1.6;
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--primary);
+  }
+  
+  .company-name {
+    color: var(--primary);
+    font-size: 2.2rem;
+    margin-bottom: 5px;
+    font-weight: 700;
+  }
+  
+  .tour-title {
+    font-size: 1.6rem;
+    color: var(--text);
+    margin-top: 0;
+    font-weight: 600;
+  }
+  
+  .tour-duration {
+    color: var(--accent);
+    font-weight: 500;
+    margin-top: 5px;
+  }
+  
+  .search-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+  }
+  
+  .search-container {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .search-input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  .search-btn {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  
+  .search-btn:hover {
+    background-color: var(--primary-dark);
+  }
+  
+  .packages-section {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+  }
+  
+  .packages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .package-card {
+    background-color: var(--secondary);
+    border-radius: 8px;
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid var(--border);
+  }
+  
+  .package-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+  
+  .package-card.selected {
+    border: 2px solid var(--primary);
+    background-color: #e8f4ff;
+  }
+  
+  .package-duration {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 10px;
+  }
+  
+  .package-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent);
+    margin: 10px 0;
+  }
+  
+  .package-highlights {
+    margin: 15px 0;
+  }
+  
+  .package-highlights li {
+    margin-bottom: 8px;
+    padding-left: 5px;
+  }
+  
+  .select-package-btn {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    width: 100%;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+  }
+  
+  .select-package-btn:hover {
+    background-color: var(--primary-dark);
+  }
+  
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .form-container {
+    flex: 1;
+    min-width: 300px;
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  .package-details-container {
+    flex: 1;
+    min-width: 300px;
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  h2 { 
+    text-align: center; 
+    color: var(--primary);
+    margin-top: 0;
+  }
+  
+  label { 
+    display: block; 
+    margin-top: 15px; 
+    font-weight: 600;
+  }
+  
+  select, input { 
+    width: 100%; 
+    padding: 12px; 
+    margin-top: 8px; 
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  button { 
+    margin-top: 25px; 
+    padding: 14px 20px; 
+    width: 100%; 
+    background-color: var(--primary); 
+    color: white; 
+    border: none; 
+    border-radius: 5px;
+    cursor: pointer; 
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover { 
+    background-color: var(--primary-dark); 
+  }
+  
+  .summary { 
+    margin-top: 30px; 
+    padding: 20px; 
+    border: 1px solid var(--border); 
+    border-radius: 8px;
+    background-color: var(--secondary);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  
+  .summary h3 {
+    margin-top: 0;
+    color: var(--primary);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+  }
+  
+  .cost-highlight {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--primary);
+    margin: 15px 0;
+  }
+  
+  .exclusions {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px dashed var(--border);
+  }
+  
+  .whatsapp-btn {
+    background-color: #25D366;
+    margin-top: 15px;
+  }
+  
+  .whatsapp-btn:hover {
+    background-color: #128C7E;
+  }
+  
+  .package-details {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+  }
+  
+  .package-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .package-name {
+    font-weight: 600;
+    color: var(--primary);
+    font-size: 1.2rem;
+  }
+  
+  .itinerary-day {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .itinerary-day:last-child {
+    border-bottom: none;
+  }
+  
+  .day-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .day-number {
+    background-color: var(--primary);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  
+  .day-title {
+    font-weight: 600;
+    color: var(--primary);
+    font-size: 1.1rem;
+  }
+  
+  .day-details {
+    padding-left: 40px;
+  }
+  
+  .day-highlights {
+    margin-top: 10px;
+    font-weight: 500;
+    color: var(--accent);
+  }
+  
+  .meals {
+    font-style: italic;
+    color: #666;
+    margin-top: 5px;
+  }
+  
+  .inclusions-list, .exclusions-list {
+    margin-top: 15px;
+  }
+  
+  .inclusions-list h4, .exclusions-list h4 {
+    color: var(--primary);
+    margin-bottom: 8px;
+  }
+  
+  .customer-details {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-top: 30px;
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .form-group {
+    flex: 1;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+    
+    body {
+      padding: 15px;
+    }
+    
+    .form-container, .package-details-container {
+      padding: 20px;
+    }
+    
+    .packages-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .search-container {
+      flex-direction: column;
+    }
+    
+    .form-row {
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="company-name">Jafari Tour and Travel</div>
+  <h1 class="tour-title">Kashmir Tour Packages</h1>
+  <div class="tour-duration">Choose from our exclusive tour durations</div>
+</div>
+
+<div class="search-section">
+  <h2>Search Package Details</h2>
+  <div class="search-container">
+    <input type="text" class="search-input" id="packageSearch" placeholder="Search for packages (e.g., 2 days, 3 days, 5 days)">
+    <button class="search-btn" onclick="searchPackage()">Search</button>
+  </div>
+</div>
+
+<div class="packages-section">
+  <h2>Select Your Tour Duration</h2>
+  <div class="packages-grid" id="packagesGrid">
+    <!-- Packages will be dynamically inserted here -->
+  </div>
+</div>
+
+<div class="container">
+  <div class="form-container">
+    <h2>Book Your Tour</h2>
+    <form id="tourForm">
+      <label>Selected Package:
+        <input type="text" id="selectedPackage" readonly style="background-color: #f0f0f0;">
+      </label>
+
+      <label>Package Type:
+        <select id="packageType" required onchange="updatePrice()">
+          <option value="">Select Package Type</option>
+          <option value="Standard" data-multiplier="1">Standard (Twin-sharing, Breakfast)</option>
+          <option value="Deluxe" data-multiplier="1.3">Deluxe (3-star, Breakfast & Dinner)</option>
+          <option value="Premium" data-multiplier="1.6">Premium (4-star, All Meals)</option>
+        </select>
+      </label>
+
+      <label>Number of Adults:
+        <input type="number" id="adults" min="1" value="2" required onchange="updatePrice()">
+      </label>
+
+      <label>Number of Children:
+        <input type="number" id="children" min="0" value="0" onchange="updatePrice()">
+      </label>
+
+      <label>Tour Start Date:
+        <input type="date" id="startDate" required>
+      </label>
+
+      <div class="cost-highlight" id="pricePreview" style="text-align: center; display: none;">
+        Estimated Cost: ₹<span id="estimatedPrice">0</span>
+      </div>
+    </form>
+  </div>
+
+  <div class="package-details-container">
+    <h2>Package Details</h2>
+    <div id="packageDetails">
+      <div class="package-details">
+        <div class="package-header">
+          <div class="package-name">Select a package to view details</div>
+        </div>
+        <p>Please choose a package duration to see detailed itinerary, inclusions, and pricing information.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="customer-details">
+  <h2>Customer Information</h2>
+  <form id="customerForm">
+    <div class="form-row">
+      <div class="form-group">
+        <label>Full Name:
+          <input type="text" id="customerName" required placeholder="Enter your full name">
+        </label>
+      </div>
+      <div class="form-group">
+        <label>Phone Number:
+          <input type="tel" id="customerPhone" required placeholder="Enter your phone number">
+        </label>
+      </div>
+    </div>
+    
+    <div class="form-row">
+      <div class="form-group">
+        <label>Email Address:
+          <input type="email" id="customerEmail" required placeholder="Enter your email address">
+        </label>
+      </div>
+      <div class="form-group">
+        <label>City:
+          <input type="text" id="customerCity" required placeholder="Enter your city">
+        </label>
+      </div>
+    </div>
+    
+    <div class="form-row">
+      <div class="form-group">
+        <label>Special Requirements (Optional):
+          <textarea id="specialRequirements" rows="3" placeholder="Any special requirements or preferences"></textarea>
+        </label>
+      </div>
+    </div>
+
+    <button type="button" onclick="calculateTotal()">Show Summary & Send Lead via WhatsApp</button>
+  </form>
+</div>
+
+<div class="summary" id="summary" style="display:none;"></div>
+
+<script>
+// Package details data
+const packageDetailsData = {
+  "2days1night": {
+    id: "2days1night",
+    name: "2 Days / 1 Night",
+    basePrice: 8000,
+    description: "Perfect for a quick getaway to experience the beauty of Srinagar and Dal Lake.",
+    highlights: [
+      "Shikara ride in Dal Lake",
+      "Stay in Houseboat or Hotel",
+      "Visit Mughal Gardens",
+      "Local market shopping"
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Srinagar & Dal Lake Experience",
+        details: "Arrive at Srinagar airport/railway station. Transfer to hotel/houseboat. Afternoon enjoy Shikara ride in Dal Lake, visit Char Chinar and Nehru Park. Evening at leisure.",
+        stay: "Srinagar (Houseboat/Hotel)",
+        meals: "Dinner"
+      },
+      {
+        day: 2,
+        title: "Mughal Gardens & Departure",
+        details: "After breakfast, visit Nishat Bagh and Shalimar Bagh - the famous Mughal Gardens. Later, transfer to airport/railway station for departure.",
+        meals: "Breakfast"
+      }
+    ],
+    inclusions: [
+      "1 night accommodation",
+      "All meals as per itinerary",
+      "Shikara ride in Dal Lake",
+      "All transfers and sightseeing",
+      "All applicable taxes"
+    ],
+    exclusions: [
+      "Air/Rail fare",
+      "Personal expenses",
+      "Guide charges",
+      "Any activities not mentioned"
+    ]
+  },
+  "3days2nights": {
+    id: "3days2nights",
+    name: "3 Days / 2 Nights",
+    basePrice: 12000,
+    description: "Explore the beauty of Srinagar with visits to Mughal Gardens and local attractions.",
+    highlights: [
+      "Shikara ride in Dal Lake",
+      "Mughal Gardens visit",
+      "Shankaracharya Temple",
+      "Local market experience"
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Srinagar & Dal Lake",
+        details: "Arrive at Srinagar airport/railway station. Transfer to hotel/houseboat. Evening enjoy Shikara ride in Dal Lake.",
+        stay: "Srinagar",
+        meals: "Dinner"
+      },
+      {
+        day: 2,
+        title: "Srinagar Sightseeing",
+        details: "After breakfast, visit Shankaracharya Temple for panoramic views. Then explore Mughal Gardens - Nishat Bagh, Shalimar Bagh, and Chashme Shahi.",
+        stay: "Srinagar",
+        meals: "Breakfast, Dinner"
+      },
+      {
+        day: 3,
+        title: "Departure",
+        details: "After breakfast, visit local market for souvenir shopping. Later transfer to airport/railway station for departure.",
+        meals: "Breakfast"
+      }
+    ],
+    inclusions: [
+      "2 nights accommodation",
+      "All meals as per itinerary",
+      "Shikara ride",
+      "All transfers and sightseeing",
+      "All applicable taxes"
+    ],
+    exclusions: [
+      "Air/Rail fare",
+      "Personal expenses",
+      "Guide charges",
+      "Any activities not mentioned"
+    ]
+  },
+  "4days3nights": {
+    id: "4days3nights",
+    name: "4 Days / 3 Nights",
+    basePrice: 15000,
+    description: "Experience Srinagar and a day trip to Gulmarg, the meadow of flowers.",
+    highlights: [
+      "Shikara ride in Dal Lake",
+      "Gulmarg excursion",
+      "Gondola ride",
+      "Mughal Gardens"
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Srinagar",
+        details: "Arrive at Srinagar airport/railway station. Transfer to hotel/houseboat. Evening at leisure.",
+        stay: "Srinagar",
+        meals: "Dinner"
+      },
+      {
+        day: 2,
+        title: "Gulmarg Excursion",
+        details: "After breakfast, drive to Gulmarg. Enjoy Gondola ride (cable car) to Kongdori and Apharwat. Visit golf course and enjoy snow activities.",
+        stay: "Srinagar",
+        meals: "Breakfast, Dinner"
+      },
+      {
+        day: 3,
+        title: "Srinagar Sightseeing",
+        details: "After breakfast, visit Mughal Gardens - Nishat Bagh, Shalimar Bagh. Evening enjoy Shikara ride in Dal Lake.",
+        stay: "Srinagar",
+        meals: "Breakfast, Dinner"
+      },
+      {
+        day: 4,
+        title: "Departure",
+        details: "After breakfast, transfer to airport/railway station for departure.",
+        meals: "Breakfast"
+      }
+    ],
+    inclusions: [
+      "3 nights accommodation",
+      "All meals as per itinerary",
+      "Gulmarg excursion",
+      "Shikara ride",
+      "All transfers and sightseeing",
+      "All applicable taxes"
+    ],
+    exclusions: [
+      "Gondola ride tickets",
+      "Air/Rail fare",
+      "Personal expenses",
+      "Guide charges"
+    ]
+  },
+  "5days4nights": {
+    id: "5days4nights",
+    name: "5 Days / 4 Nights",
+    basePrice: 20000,
+    description: "Comprehensive Kashmir tour covering Srinagar, Gulmarg, and Pahalgam.",
+    highlights: [
+      "Srinagar, Gulmarg & Pahalgam",
+      "Gondola ride in Gulmarg",
+      "Betaab Valley visit",
+      "Shikara ride in Dal Lake"
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Srinagar",
+        details: "Arrive at Srinagar airport/railway station. Transfer to hotel/houseboat. Evening enjoy Shikara ride in Dal Lake.",
+        stay: "Srinagar",
+        meals: "Dinner"
+      },
+      {
+        day: 2,
+        title: "Srinagar to Gulmarg",
+        details: "After breakfast, drive to Gulmarg. Enjoy Gondola ride and snow activities. Return to Srinagar in the evening.",
+        stay: "Srinagar",
+        meals: "Breakfast, Dinner"
+      },
+      {
+        day: 3,
+        title: "Srinagar to Pahalgam",
+        details: "After breakfast, drive to Pahalgam. Visit Betaab Valley, Aru Valley, and Chandanwari. Return to Srinagar.",
+        stay: "Srinagar",
+        meals: "Breakfast, Dinner"
+      },
+      {
+        day: 4,
+        title: "Srinagar Sightseeing",
+        details: "After breakfast, visit Mughal Gardens and Shankaracharya Temple. Evening at leisure for shopping.",
+        stay: "Srinagar",
+        meals: "Breakfast, Dinner"
+      },
+      {
+        day: 5,
+        title: "Departure",
+        details: "After breakfast, transfer to airport/railway station for departure.",
+        meals: "Breakfast"
+      }
+    ],
+    inclusions: [
+      "4 nights accommodation",
+      "All meals as per itinerary",
+      "Gulmarg and Pahalgam excursions",
+      "Shikara ride",
+      "All transfers and sightseeing",
+      "All applicable taxes"
+    ],
+    exclusions: [
+      "Gondola ride tickets",
+      "Air/Rail fare",
+      "Personal expenses",
+      "Guide charges"
+    ]
+  },
+  "6days5nights": {
+    id: "6days5nights",
+    name: "6 Days / 5 Nights",
+    basePrice: 25000,
+    description: "Complete Kashmir experience covering Srinagar, Gulmarg, Pahalgam, and Sonamarg.",
+    highlights: [
+      "Srinagar, Gulmarg, Pahalgam & Sonamarg",
+      "Gondola ride in Gulmarg",
+      "Betaab Valley & Aru Valley",
+      "Thajiwas Glacier in Sonamarg"
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Srinagar",
+        details: "Arrive at Srinagar airport/railway station. Transfer to hotel/houseboat. Evening enjoy Shikara ride in Dal Lake.",
+        stay: "Srinagar",
+        meals: "Dinner"
+      },
+      {
+        day: 2,
+        title: "Srinagar to Gulmarg",
+        details: "After breakfast, drive to Gulmarg. Enjoy Gondola ride and snow activities. Return to Srinagar.",
+        stay: "Srinagar",
+        meals: "Breakfast, Dinner"
+      },
+      {
+        day: 3,
+        title: "Srinagar to Pahalgam",
+        details: "After breakfast, drive to Pahalgam. Visit Betaab Valley, Aru Valley. Return to Srinagar.",
+        stay: "Srinagar",
+        meals: "Breakfast, Dinner"
+      },
+      {
+        day: 4,
+        title: "Srinagar to Sonamarg",
+        details: "After breakfast, drive to Sonamarg. Visit Thajiwas Glacier. Return to Srinagar.",
+        stay: "Srinagar",
+        meals: "Breakfast, Dinner"
+      },
+      {
+        day: 5,
+        title: "Srinagar Sightseeing",
+        details: "After breakfast, visit Mughal Gardens and Shankaracharya Temple. Evening at leisure.",
+        stay: "Srinagar",
+        meals: "Breakfast, Dinner"
+      },
+      {
+        day: 6,
+        title: "Departure",
+        details: "After breakfast, transfer to airport/railway station for departure.",
+        meals: "Breakfast"
+      }
+    ],
+    inclusions: [
+      "5 nights accommodation",
+      "All meals as per itinerary",
+      "All excursions",
+      "Shikara ride",
+      "All transfers and sightseeing",
+      "All applicable taxes"
+    ],
+    exclusions: [
+      "Gondola ride tickets",
+      "Air/Rail fare",
+      "Personal expenses",
+      "Guide charges"
+    ]
+  },
+  "7days6nights": {
+    id: "7days6nights",
+    name: "7 Days / 6 Nights",
+    basePrice: 30000,
+    description: "Ultimate Kashmir tour with extended stays and comprehensive sightseeing.",
+    highlights: [
+      "All major destinations covered",
+      "Extended time at each location",
+      "Leisure time for exploration",
+      "Comprehensive cultural experience"
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Srinagar",
+        details: "Arrive at Srinagar airport/railway station. Transfer to hotel/houseboat. Evening at leisure.",
+        stay: "Srinagar",
+        meals: "Dinner"
+      },
+      {
+        day: 2,
+        title: "Srinagar Sightseeing",
+        details: "After breakfast, visit Mughal Gardens - Nishat Bagh, Shalimar Bagh. Evening enjoy Shikara ride in Dal Lake.",
+        stay: "Srinagar",
+        meals: "Breakfast, Dinner"
+      },
+      {
+        day: 3,
+        title: "Srinagar to Gulmarg",
+        details: "After breakfast, drive to Gulmarg. Enjoy Gondola ride and snow activities. Return to Srinagar.",
+        stay: "Srinagar",
+        meals: "Breakfast, Dinner"
+      },
+      {
+        day: 4,
+        title: "Srinagar to Pahalgam",
+        details: "After breakfast, drive to Pahalgam. Visit Betaab Valley, Aru Valley. Overnight stay in Pahalgam.",
+        stay: "Pahalgam",
+        meals: "Breakfast, Dinner"
+      },
+      {
+        day: 5,
+        title: "Pahalgam Exploration",
+        details: "Full day to explore Pahalgam - visit Chandanwari, Baisaran. Enjoy nature walks.",
+        stay: "Pahalgam",
+        meals: "Breakfast, Dinner"
+      },
+      {
+        day: 6,
+        title: "Pahalgam to Srinagar",
+        details: "After breakfast, drive back to Srinagar. Evening free for shopping and leisure.",
+        stay: "Srinagar",
+        meals: "Breakfast, Dinner"
+      },
+      {
+        day: 7,
+        title: "Departure",
+        details: "After breakfast, transfer to airport/railway station for departure.",
+        meals: "Breakfast"
+      }
+    ],
+    inclusions: [
+      "6 nights accommodation",
+      "All meals as per itinerary",
+      "All excursions",
+      "Shikara ride",
+      "All transfers and sightseeing",
+      "All applicable taxes"
+    ],
+    exclusions: [
+      "Gondola ride tickets",
+      "Air/Rail fare",
+      "Personal expenses",
+      "Guide charges"
+    ]
+  }
+};
+
+let selectedPackage = null;
+
+// Initialize packages grid
+function initializePackages() {
+  const packagesGrid = document.getElementById('packagesGrid');
+  packagesGrid.innerHTML = '';
+  
+  for (const packageId in packageDetailsData) {
+    const package = packageDetailsData[packageId];
+    const packageCard = document.createElement('div');
+    packageCard.className = 'package-card';
+    packageCard.id = `package-${packageId}`;
+    
+    packageCard.innerHTML = `
+      <div class="package-duration">${package.name}</div>
+      <div class="package-price">Starting from ₹${package.basePrice.toLocaleString('en-IN')}</div>
+      <p>${package.description}</p>
+      <div class="package-highlights">
+        <ul>
+          ${package.highlights.map(highlight => `<li>${highlight}</li>`).join('')}
+        </ul>
+      </div>
+      <button class="select-package-btn" onclick="selectPackage('${packageId}')">Select Package</button>
+    `;
+    
+    packagesGrid.appendChild(packageCard);
+  }
+}
+
+// Select package function
+function selectPackage(packageId) {
+  // Remove selected class from all packages
+  document.querySelectorAll('.package-card').forEach(card => {
+    card.classList.remove('selected');
+  });
+  
+  // Add selected class to chosen package
+  document.getElementById(`package-${packageId}`).classList.add('selected');
+  
+  // Set selected package
+  selectedPackage = packageDetailsData[packageId];
+  
+  // Update form
+  document.getElementById('selectedPackage').value = selectedPackage.name;
+  
+  // Show package details
+  showPackageDetails(packageId);
+  
+  // Update price preview
+  updatePrice();
+  
+  // Scroll to form
+  document.querySelector('.form-container').scrollIntoView({ behavior: 'smooth' });
+}
+
+function showPackageDetails(packageId) {
+  const package = packageDetailsData[packageId];
+  const packageDetailsDiv = document.getElementById('packageDetails');
+  
+  packageDetailsDiv.innerHTML = `
+    <div class="package-details">
+      <div class="package-header">
+        <div class="package-name">${package.name}</div>
+      </div>
+      <div class="package-price">Starting from ₹${package.basePrice.toLocaleString('en-IN')}</div>
+      <p>${package.description}</p>
+      
+      <h4>Itinerary:</h4>
+      ${package.itinerary.map(day => `
+        <div class="itinerary-day">
+          <div class="day-header">
+            <div class="day-number">${day.day}</div>
+            <div class="day-title">${day.title}</div>
+          </div>
+          <div class="day-details">
+            <p>${day.details}</p>
+            ${day.stay ? `<div class="day-highlights">Night Stay: ${day.stay}</div>` : ''}
+            ${day.meals ? `<div class="meals">Meals: ${day.meals}</div>` : ''}
+          </div>
+        </div>
+      `).join('')}
+      
+      <div class="inclusions-list">
+        <h4>Inclusions:</h4>
+        <ul>
+          ${package.inclusions.map(inclusion => `<li>${inclusion}</li>`).join('')}
+        </ul>
+      </div>
+      
+      <div class="exclusions-list">
+        <h4>Exclusions:</h4>
+        <ul>
+          ${package.exclusions.map(exclusion => `<li>${exclusion}</li>`).join('')}
+        </ul>
+      </div>
+    </div>
+  `;
+}
+
+function updatePrice() {
+  if (!selectedPackage) return;
+  
+  const packageTypeSelect = document.getElementById('packageType');
+  const multiplier = packageTypeSelect.selectedOptions[0]?.dataset.multiplier || 1;
+  const adults = parseInt(document.getElementById('adults').value) || 0;
+  const children = parseInt(document.getElementById('children').value) || 0;
+  
+  const totalPeople = adults + children;
+  const estimatedPrice = Math.round(selectedPackage.basePrice * multiplier * totalPeople);
+  
+  const pricePreview = document.getElementById('pricePreview');
+  const estimatedPriceSpan = document.getElementById('estimatedPrice');
+  
+  estimatedPriceSpan.textContent = estimatedPrice.toLocaleString('en-IN');
+  pricePreview.style.display = 'block';
+}
+
+function searchPackage() {
+  const searchInput = document.getElementById('packageSearch');
+  const searchTerm = searchInput.value.trim().toLowerCase();
+  
+  if (!searchTerm) {
+    alert('Please enter a package duration to search (e.g., 2 days, 3 days, 5 days)');
+    return;
+  }
+  
+  // Find matching package
+  let matchedPackage = null;
+  for (const packageId in packageDetailsData) {
+    const package = packageDetailsData[packageId];
+    if (package.name.toLowerCase().includes(searchTerm)) {
+      matchedPackage = packageId;
+      break;
+    }
+  }
+  
+  if (matchedPackage) {
+    selectPackage(matchedPackage);
+  } else {
+    alert('No package found matching your search. Please try "2 days", "3 days", "5 days", etc.');
+  }
+}
+
+function calculateTotal() {
+  if (!selectedPackage) {
+    alert('Please select a package first.');
+    return;
+  }
+  
+  const packageTypeSelect = document.getElementById('packageType');
+  const packageType = packageTypeSelect.value;
+  const multiplier = packageTypeSelect.selectedOptions[0]?.dataset.multiplier || 1;
+  const adults = parseInt(document.getElementById('adults').value);
+  const children = parseInt(document.getElementById('children').value);
+  const startDate = document.getElementById('startDate').value;
+
+  // Customer details
+  const customerName = document.getElementById('customerName').value;
+  const customerPhone = document.getElementById('customerPhone').value;
+  const customerEmail = document.getElementById('customerEmail').value;
+  const customerCity = document.getElementById('customerCity').value;
+  const specialRequirements = document.getElementById('specialRequirements').value;
+
+  if (!packageType || !startDate || !customerName || !customerPhone || !customerEmail || !customerCity) {
+    alert('Please fill all required fields including customer information.');
+    return;
+  }
+
+  const totalPeople = adults + children;
+  let totalCost = Math.round(selectedPackage.basePrice * multiplier * totalPeople);
+
+  // Add extra bed cost if needed
+  if (children > 0) {
+    totalCost += children * 1000; // 1000 INR per child for extra bed
+  }
+
+  const summaryDiv = document.getElementById('summary');
+  summaryDiv.style.display = 'block';
+  summaryDiv.innerHTML = `
+    <h3>Booking Summary</h3>
+    <p><strong>Package:</strong> ${selectedPackage.name}</p>
+    <p><strong>Package Type:</strong> ${packageType}</p>
+    <p><strong>Adults:</strong> ${adults}</p>
+    <p><strong>Children:</strong> ${children}</p>
+    <p><strong>Start Date:</strong> ${startDate}</p>
+    <p><strong>Customer Name:</strong> ${customerName}</p>
+    <p><strong>Phone:</strong> ${customerPhone}</p>
+    <p><strong>Email:</strong> ${customerEmail}</p>
+    <p><strong>City:</strong> ${customerCity}</p>
+    ${specialRequirements ? `<p><strong>Special Requirements:</strong> ${specialRequirements}</p>` : ''}
+    <div class="cost-highlight">Total Cost: ₹${totalCost.toLocaleString('en-IN')}</div>
+    <div class="exclusions">
+      <p><strong>Note:</strong> Final cost may vary based on actual hotel selection and availability. Contact us for exact pricing.</p>
+    </div>
+    <button class="whatsapp-btn" onclick="sendWhatsApp()">Send Lead via WhatsApp</button>
+  `;
+}
+
+function sendWhatsApp() {
+  if (!selectedPackage) return;
+  
+  const packageType = document.getElementById('packageType').value;
+  const adults = document.getElementById('adults').value;
+  const children = document.getElementById('children').value;
+  const startDate = document.getElementById('startDate').value;
+  
+  // Customer details
+  const customerName = document.getElementById('customerName').value;
+  const customerPhone = document.getElementById('customerPhone').value;
+  const customerEmail = document.getElementById('customerEmail').value;
+  const customerCity = document.getElementById('customerCity').value;
+  const specialRequirements = document.getElementById('specialRequirements').value;
+
+  const summaryDiv = document.getElementById('summary');
+  const totalCost = summaryDiv.querySelector('.cost-highlight').textContent;
+
+  let message = `🌟 *NEW KASHMIR TOUR LEAD* 🌟%0A%0A` +
+                `*Company:* Jafari Tour and Travel%0A%0A` +
+                `*CUSTOMER DETAILS:*%0A` +
+                `Name: ${customerName}%0A` +
+                `Phone: ${customerPhone}%0A` +
+                `Email: ${customerEmail}%0A` +
+                `City: ${customerCity}%0A%0A` +
+                `*TOUR DETAILS:*%0A` +
+                `Package: ${selectedPackage.name}%0A` +
+                `Package Type: ${packageType}%0A` +
+                `Adults: ${adults}%0A` +
+                `Children: ${children}%0A` +
+                `Start Date: ${startDate}%0A` +
+                `${totalCost}%0A%0A`;
+  
+  if (specialRequirements) {
+    message += `*Special Requirements:*%0A${specialRequirements}%0A%0A`;
+  }
+  
+  message += `_This lead was generated through Jafari Tour and Travel website_`;
+
+  const whatsappNumber = "917889626353"; // Your WhatsApp number
+  window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+}
+
+// Set minimum date to today
+document.getElementById('startDate').min = new Date().toISOString().split('T')[0];
+
+// Initialize packages when page loads
+document.addEventListener('DOMContentLoaded', function() {
+  initializePackages();
+  showPackageDetails();
+});
+</script>
+
+</body>
+</html>
